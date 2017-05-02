@@ -1,0 +1,24 @@
+print '========== Clase 23: =========='
+
+class MiClase():
+    color = ""
+
+    def __init__(self): # Constructor
+        numero = 0
+
+miObj1 = MiClase()
+miObj2 = MiClase()
+miObj1.color = "Rojo"
+miObj2.color = "Verde"
+print miObj1.color
+print miObj2.color
+# En este ejemplo "color" es un atributo de instancia, es decir, cada objeto tiene siu copia de color.
+
+class Persona():
+    def __init__(self):
+        sano = True
+        inmune = False
+        contactos = []
+
+    def creaContactos(self, num):
+        self.contactos.append(num)

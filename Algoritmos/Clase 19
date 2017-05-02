@@ -1,0 +1,9 @@
+print '========== Clase 19: =========='
+def numCasos(base, numPeriodos):
+    # Calculado en quincenas.
+    resultado = base
+    for c in range(numPeriodos):
+        resultado = resultado * 1.3742
+    return int(resultado)
+
+print numCasos(72, 13)

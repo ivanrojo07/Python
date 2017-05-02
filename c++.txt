@@ -1,0 +1,10 @@
+main ( ) {
+int a , b ; 
+/*Hola*/
+a = 5 ;	
+/*Esto es*/
+b = 3 ;	
+/*c*/
+a = a+b ;
+/*UN COMENTARIOOOOOOOOOO: TE HACE FALTA VER MÁS BOX*/
+}

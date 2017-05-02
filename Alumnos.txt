@@ -1,0 +1,5 @@
+Ivan Rojo Orea,3096316624,1510,True,10
+Yolo Rodriguez Carmona,23134562654,1547,False,5
+Michelle Garcia Baez,54641654665,1488,True,8
+Karen Gillian Martinez,302585465545,15,False,7
+Daniel Guzman Ramirez,351465466545,12558,True,6

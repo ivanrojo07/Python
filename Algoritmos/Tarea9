@@ -1,0 +1,173 @@
+class Cosas():
+    nombre=""
+    precio=0
+    peso=0
+    llevado=False
+
+def binarizar(decimal):
+    binario = ''
+    while decimal // 2 != 0:
+        binario = str(decimal % 2) + binario
+        decimal = decimal // 2
+    return str(decimal) + binario
+
+cosa1=Cosas()
+cosa1.nombre='reloj'
+cosa1.peso=10
+cosa1.precio=175
+
+cosa2=Cosas()
+cosa2.nombre='pintura'
+cosa2.peso=9
+cosa2.precio=90
+
+cosa3=Cosas()
+cosa3.nombre='radio'
+cosa3.peso=4
+cosa3.precio=20
+
+cosa4=Cosas()
+cosa4.nombre='florero'
+cosa4.peso=2
+cosa4.precio=50
+
+cosa5=Cosas()
+cosa5.nombre='libro'
+cosa5.peso=1
+cosa5.precio=10
+
+cosa6=Cosas()
+cosa6.nombre='computadora'
+cosa6.peso=10
+cosa6.precio=20
+
+cosa7=Cosas()
+cosa7.nombre='retrato'
+cosa7.peso=1
+cosa7.precio=8
+
+cosa8=Cosas()
+cosa8.nombre='Televisión'
+cosa8.peso=18
+cosa8.precio=200
+
+cosa9=Cosas()
+cosa9.nombre='Cartera'
+cosa9.peso=1
+cosa9.precio=150
+
+cosa10=Cosas()
+cosa10.nombre='retrato'
+cosa10.peso=1
+cosa10.precio=8
+
+cosa11=Cosas()
+cosa11.nombre='reloj2'
+cosa11.peso=10
+cosa11.precio=175
+
+cosa12=Cosas()
+cosa12.nombre='pintura2'
+cosa12.peso=9
+cosa12.precio=90
+
+cosa13=Cosas()
+cosa13.nombre='radio2'
+cosa13.peso=4
+cosa13.precio=20
+
+cosa14=Cosas()
+cosa14.nombre='florero2'
+cosa14.peso=2
+cosa14.precio=50
+
+
+
+
+def evalua(num, arregloCosas, restriccion):
+    pre=0
+    for c in range(num):
+        a=(binarizar(c)).zfill(6)
+        peso = 0
+        precio=0
+        for i in range(len(a)):
+            if int(a[i]) == 0:
+                arregloCosas[i].llevado=False
+            else:
+                arregloCosas[i].llevado=True
+                peso = peso + arregloCosas[i].peso
+                precio = precio + arregloCosas[i].precio
+        if peso <= restriccion and pre < precio:
+            pes = peso
+            pre = precio
+            item = a
+    return item
+    
+    
+
+arregloCosas=[cosa1,cosa2,cosa3,cosa4,cosa5,cosa6]
+
+print 'Cosas encontradas:'
+for i in arregloCosas:
+    print i.nombre, i.peso, i.precio
+
+
+
+
+print 'La bolsa puede llevar:','\t'
+cosas= evalua(64,arregloCosas,20)
+peso=0
+precio=0
+for i in range(6):
+    b=''
+    val=int(cosas[i])
+    if val > 0:
+        a=len('computadora')-len(arregloCosas[i].nombre)
+        for j in range(a):
+            b=b+' '
+        peso = peso + arregloCosas[i].peso
+        precio = precio + arregloCosas[i].precio
+        print arregloCosas[i].nombre,b,arregloCosas[i].precio,arregloCosas[i].peso,"\t"
+print 'Ganancia = ','$'+str(precio),'con',str(peso)+' Libras de peso'
+
+arregloCosas=[cosa1,cosa2,cosa3,cosa4,cosa5,cosa6,cosa7,cosa8,cosa9]
+
+print 'La bolsa puede llevar(9 cosas):','\t'
+cosas= evalua(512,arregloCosas,20)
+peso=0
+precio=0
+for i in range(9):
+    b=''
+    val=int(cosas[i])
+    if val > 0:
+        a=len('computadora')-len(arregloCosas[i].nombre)
+        for j in range(a):
+            b=b+' '
+        peso = peso + arregloCosas[i].peso
+        precio = precio + arregloCosas[i].precio
+        print arregloCosas[i].nombre,b,arregloCosas[i].precio,arregloCosas[i].peso,"\t"
+print 'Ganancia = ','$'+str(precio),'con',str(peso)+' Libras de peso'
+
+
+arregloCosas=[cosa1,cosa2,cosa3,cosa4,cosa5,cosa6,cosa7,cosa8,cosa9,cosa10,cosa11, cosa12,cosa13,cosa14]
+
+
+print 'La bolsa puede llevar(14 cosas):','\t'
+cosas= evalua(16384,arregloCosas,20)
+peso=0
+precio=0
+for i in range(14):
+    b=''
+    val=int(cosas[i])
+    if val > 0:
+        a=len('computadora')-len(arregloCosas[i].nombre)
+        for j in range(a):
+            b=b+' '
+        peso = peso + arregloCosas[i].peso
+        precio = precio + arregloCosas[i].precio
+        print arregloCosas[i].nombre,b,arregloCosas[i].precio,arregloCosas[i].peso,"\t"
+print 'Ganancia = ','$'+str(precio),'con',str(peso)+' Libras de peso'
+
+#Tarda 3 segundos con un procesador Intel Celeron P4600 a 2.00GHz y 2.00 GB de RAM
+#En una hora se puede comparar 42 cosas
+

@@ -1,0 +1,83 @@
+# -*- coding: cp1252 -*-
+print '========== Clase 21 POO en Python =========='
+
+def binario(numero, bitsMaximos):
+    cad = ""
+    while numero > 0:
+        if numero % 2 == 0:
+            cad = '0' + cad
+        else:
+            cad = '1' + cad
+        numero = int(numero/2)
+    for j in range(len(arregloCosas)):
+        if j + 1 > len(cad):
+            cad = '0' + cad
+    return cad
+
+class Cosas():
+    nombre = ""
+    precio = 0
+    peso = 0
+    llevado = False
+
+cosa1 = Cosas()
+cosa1.nombre = "Reloj"
+cosa1.peso = 10
+cosa1.precio = 175
+
+cosa2 = Cosas()
+cosa2.nombre = "Pintura"
+cosa2.peso = 9
+cosa2.precio = 90
+
+cosa3 = Cosas()
+cosa3.nombre = "Radio"
+cosa3.peso = 4
+cosa3.precio = 20
+
+cosa4 = Cosas()
+cosa4.nombre = "Florero"
+cosa4.peso = 2
+cosa4.precio = 50
+
+cosa5 = Cosas()
+cosa5.nombre = "Libro"
+cosa5.peso = 1
+cosa5.precio = 10
+
+cosa6 = Cosas()
+cosa6.nombre = "Computadora"
+cosa6.peso = 10
+cosa6.precio = 20
+
+arregloCosas = [cosa1, cosa2, cosa3, cosa4, cosa5, cosa6]
+
+for i in arregloCosas:
+    print i.nombre,
+    print "\t",
+    print i.precio
+
+listaResultados = []
+maximo = 0
+for a in range(pow(2, len(arregloCosas))):
+    totalPeso = 0
+    totalPrecio = 0
+    cadenaNum = binario(a, len(arregloCosas))
+    cont = len(cadenaNum)
+    for b in arregloCosas:
+        if cadenaNum[cont-1] == '1':
+            totalPeso += b.peso
+            totalPrecio += b.precio
+        cont = cont - 1
+    if totalPeso <= 20 and maximo < totalPrecio:
+        maximo = totalPrecio
+        localizacion = a
+    listaResultados.append([totalPeso, totalPrecio])
+print 'El máximo valor que puedes ganar es $',maximo,'con los siguientes objetos:'
+cad = binario(localizacion, len(arregloCosas))
+fin = len(arregloCosas)
+
+for c in arregloCosas:
+    if cad[fin-1] == '1':
+        print ' - ',c.nombre
+    fin = fin - 1

@@ -1,0 +1,37 @@
+# -*- coding: cp1252 -*-
+print '========== Clase 20: =========='
+
+def numCasos(base, numPeriodos):
+    # Calculado en quincenas.
+    resultado = base
+    for c in range(numPeriodos):
+        resultado = resultado * 1.3742
+    return int(resultado)
+
+
+#prueba = raw_input('Por favor, defina en qué tiempo necesitas los casos: ')
+n = 0
+lista = []
+for i in range(40):
+    lista.append(i)
+    
+for k in range(40):
+    lista.append(numCasos(72, k))
+
+print '\tPeríodo\tNúmero de casos'
+
+for j in range(len(lista)/2):
+    print '\t',lista[j],'\t',lista[j+40]
+
+prueba = 10000
+n = 0
+while lista[n+40] <= prueba:
+    n += 1
+
+print 'Cerca de los',n,'períodos se llegarán casi a los',n,'casos (',lista[n+40],').'
+
+num = 0
+while prueba >= numCasos(72,num):
+    num += 1
+print num
+

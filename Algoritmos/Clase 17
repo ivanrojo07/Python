@@ -1,0 +1,17 @@
+print '========= Clase 17 =========='
+
+def cuantasLetras(cadena, letra):
+    c = 0
+    for i in cadena:
+        if i == letra:
+            c += 1
+    return  c
+
+print ord('A')
+print chr(65)
+
+# Piano          35       17000
+# Celular       0.5        1000
+# Pantalla 32"    8        6000
+# Reloj           2        2000
+# PC              3        4000

@@ -1,0 +1,124 @@
+# -*- coding: cp1252 -*-
+print '========== Clase 21 =========='
+
+def cargaPalabrasArreglo():
+    archivo = open("words.txt", "r")
+    renglon = archivo.readline()
+    palabras = renglon.split()
+    print len(palabras), 'palabras leídas.'
+    return palabras
+
+def imprimirPorcentajes(lista):
+    for n in range(len(alfabeto)):
+        print lista[n][1],'=',lista[n][0],'%.'
+        
+def contadorCaracteresLetras(cadena, alfabeto, mayorMenorFalse):
+    # Cuenta cuántos caracteres del alfabeto hay en la cadena y los regresa por promedios.
+    total = []
+    letras = 0
+    for i in range(len(alfabeto)):
+        contador = 0
+        for j in range(len(cadena)):
+            if alfabeto[i].find(cadena[j]) != -1:
+                contador += 1
+                letras += 1
+        total.append(contador)
+    total.append(letras)
+
+    listaTotal = []
+    for c in range(len(alfabeto)):
+        if total[c] != 0:
+            porcentaje = float((total[c]*100.0) / total[-1])
+        else:
+            porcentaje = 0
+        listaTotal.append(porcentaje)
+        
+    l = []
+    for i in range(len(alfabeto)):
+        l.append([listaTotal[i], alfabeto[i]])
+    if mayorMenorFalse:
+        l.sort(None, None, True)
+    imprimirPorcentajes(l)
+
+def cifraSustituye(cadena, alfabetoLlave):
+    alfabeto = 'abcdefghijklmnopqrstuvwxyz'
+    nuevaCadena = ""
+    for l in cadena:
+        if l in cadena:
+            nuevaCadena += alfabetoLlave[alfabeto.find(l)]
+        else:
+            nuevaCadena += l
+    return nuevaCadena
+
+def descifraSustituye(cadena, alfabetoLlave):
+    alfabeto = 'abcdefghijklmnopqrstuvwxyz'
+    nuevaCadena = ""
+    for l in cadena:
+        if l in cadena:
+            nuevaCadena += alfabeto[alfabetoLlave.find(l)]
+        else:
+            nuevaCadena += l
+    return nuevaCadena
+    
+def frecuenciaEspaniol():
+    print 'Frecuencias de las letras en español:'
+    alfabeto = 'abcdefghijklmnopqrstuvwxyz'
+    archivo = open("palabrasEspa.txt", "r")
+    p = archivo.read()
+    contadorCaracteresLetras(p, alfabeto, False)
+
+def frecuenciaEspaniolOrdenadas():
+    print 'Frecuencias de las letras en español (en orden):'
+    alfabeto = 'abcdefghijklmnopqrstuvwxyz'
+    archivo = open("palabrasEspa.txt", "r")
+    p = archivo.read()
+    l = contadorCaracteresLetras(p, alfabeto, True)
+    
+def frecuenciaIngles():
+    print 'Frecuencias de las letras en inglés:'
+    alfabeto = 'abcdefghijklmnopqrstuvwxyz'
+    archivo = open("words.txt", "r")
+    p = archivo.read()
+    l = contadorCaracteresLetras(p, alfabeto, False)
+
+def frecuenciaInglesOrdenadas():
+    print 'Frecuencias de las letras en inglés (en orden):'
+    alfabeto = 'abcdefghijklmnopqrstuvwxyz'
+    archivo = open("words.txt", "r")
+    p = archivo.read()
+    l = contadorCaracteresLetras(p, alfabeto, True)
+
+def frecuenciaItaliano():
+    print 'Frecuencias de las letras en italiano:'
+    alfabeto = 'abcdefghijklmnopqrstuvwxyz'
+    archivo = open("280000 parole.txt", "r")
+    p = archivo.read()
+    l = contadorCaracteresLetras(p, alfabeto, False)
+
+def frecuenciaItalianoOrdenadas():
+    print 'Frecuencias de las letras en italiano (en orden):'
+    alfabeto = 'abcdefghijklmnopqrstuvwxyz'
+    archivo = open("280000 parole.txt", "r")
+    p = archivo.read()
+    l = contadorCaracteresLetras(p, alfabeto, True)
+
+alfabeto = 'abcdefghijklmnopqrstuvwxyz'
+frase = 'zxoxiosvx zxu nhllyxa: gdrey txsypn gevx zaxern. xvxy zlpn gevx zaxern, tdo ylo bld, bld eax jdno e reigsyx. ey srsoeosly lm usmx. iey e altlo wasox e nbrhglyb? iey e altlo oday e... ieyven syol e txedosmdu renoxahsxix?  -nlyyb: iey bld?'
+palabras = cargaPalabrasArreglo()
+alfa = 'etizxmpgsjcurylhfanodvwkbq' # etizxmpgsj?urylh?anodvw?b?
+
+
+##for pal in palabras:
+##	if len(pal) == 3:
+##		print pal
+##
+##for pal in palabras:
+##	if len(pal) == 3 and pal[0] == 'e' and pal[2] == 'a':
+##		print pal
+##
+##for pal in palabras:
+##	if len(pal) == 3 and pal[0] == 'a' and pal[2] == 'e':
+##		print pal
+##for i in palabras:
+##      if len(i) == 9 and i[1] == 'a' and i[3] == 'a' and i[8] == 'a':
+##	        print i

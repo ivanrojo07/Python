@@ -1,0 +1,38 @@
+import random
+
+def creaDicAleatorio(alfabeto):
+    nuevoAlfabeto = ""
+    while len(alfabeto) > 0:
+        pos = random.randint(0, len(alfabeto) - 1)
+        nuevoAlfabeto += alfabeto[pos]
+        alfabeto = alfabeto[0:pos] + alfabeto[pos + 1: len(alfabeto)]
+    return nuevoAlfabeto
+
+alfabeto = 'abcdefghijklmnopqrstuvwxyz'
+
+def cifraSustituye(cadena, alfabetoLlave):
+    alfabeto = 'abcdefghijklmnopqrstuvwxyz'
+    cadena = cadena.lower()
+    nuevaCadena = ""
+    for l in cadena:
+        if l in cadena:
+            nuevaCadena += alfabetoLlave[alfabeto.find(l)]
+        else:
+            nuevaCadena += l
+    return nuevaCadena
+
+def descifraSustituye(cadena, alfabetoLlave):
+    alfabeto = 'abcdefghijklmnopqrstuvwxyz'
+    cadena = cadena.lower()
+    nuevaCadena = ""
+    for l in cadena:
+        if l in cadena:
+            nuevaCadena += alfabeto[alfabetoLlave.find(l)]
+        else:
+            nuevaCadena += l
+    return nuevaCadena
+
+cadenaCifrada = 'ts yof rt ltdqfq ekolzoqf it hxlg wotf ugkrg egdotfrg qsozql neglzossql'
+alf = 'qwertyuiopasdfghjklzxcvbnm'
+print descifraSustituye(cadenaCifrada, alf)
+print 'El fin de semana Cristin se puso bien gordo comiendo alitas y costillas'

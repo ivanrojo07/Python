@@ -1,0 +1,19 @@
+# -*- coding: cp1252 -*-
+print '========== Clase 16: Aritmética modular =========='
+
+# 0 Papel
+# 1 Tijeras
+# 2 Piedra
+
+# 0 = Empate
+# 1 = Gana el de la izquierda.
+# 2 = Gana el de la derecha.
+
+def piedraPapelTijeras(jugador1, jugador2):
+    if (jugador1 - jugador2) % 3 == 0:
+        return "Empate..."
+    elif (jugador1 - jugador2) % 3 == 1:
+        return "Gana el jugador 1."
+    else:
+        # (jugador1 - jugador2) % 3 == 2:
+        return "Gana el jugador 2."
